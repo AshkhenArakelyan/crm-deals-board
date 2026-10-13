@@ -47,6 +47,21 @@ export const DEFAULT_SORT: SortOptions = {
 };
 
 /**
+ * Returns the sort to apply when a column header is clicked. Clicking the
+ * active field toggles its direction; selecting another field starts
+ * ascending for `title` and descending for `value` and `createdAt`.
+ */
+export function getNextSort(
+  current: SortOptions,
+  field: SortField,
+): SortOptions {
+  if (current.field === field) {
+    return { field, direction: current.direction === "asc" ? "desc" : "asc" };
+  }
+  return { field, direction: field === "title" ? "asc" : "desc" };
+}
+
+/**
  * Case-insensitive "contains" search across ID, title, company, and owner.
  * An empty or whitespace-only query returns all deals.
  */

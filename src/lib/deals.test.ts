@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { filterDeals, searchDeals, sortDeals } from "@/lib/deals";
+import {
+  filterDeals,
+  getNextSort,
+  searchDeals,
+  sortDeals,
+} from "@/lib/deals";
 import type { Deal } from "@/types/deal";
 
 const deals: Deal[] = [
@@ -63,5 +68,42 @@ describe("deal data processing", () => {
 
     expect(result.map((deal) => deal.id)).toEqual([3, 1, 4]);
     expect(result.map((deal) => deal.value)).toEqual([22600, 12000, 5600]);
+  });
+});
+
+describe("getNextSort", () => {
+  it("toggles the direction when the active field is clicked", () => {
+    expect(
+      getNextSort({ field: "createdAt", direction: "desc" }, "createdAt"),
+    ).toEqual({ field: "createdAt", direction: "asc" });
+    expect(
+      getNextSort({ field: "createdAt", direction: "asc" }, "createdAt"),
+    ).toEqual({ field: "createdAt", direction: "desc" });
+    expect(
+      getNextSort({ field: "title", direction: "asc" }, "title"),
+    ).toEqual({ field: "title", direction: "desc" });
+  });
+
+  it("starts title ascending and value and createdAt descending when switching fields", () => {
+    const current = { field: "value", direction: "asc" } as const;
+
+    expect(getNextSort(current, "title")).toEqual({
+      field: "title",
+      direction: "asc",
+    });
+    expect(getNextSort(current, "createdAt")).toEqual({
+      field: "createdAt",
+      direction: "desc",
+    });
+    expect(
+      getNextSort({ field: "title", direction: "desc" }, "value"),
+    ).toEqual({ field: "value", direction: "desc" });
+  });
+
+  it("does not mutate the current sort", () => {
+    const current = Object.freeze({ field: "title", direction: "asc" } as const);
+
+    expect(getNextSort(current, "title")).not.toBe(current);
+    expect(current).toEqual({ field: "title", direction: "asc" });
   });
 });

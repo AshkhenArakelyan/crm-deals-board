@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useDeals } from "@/hooks/use-deals";
 import {
   DEFAULT_SORT,
+  getNextSort,
   processDeals,
   type SortField,
   type SortOptions,
@@ -55,11 +56,7 @@ export function DealsBoard() {
   }
 
   function handleSort(field: SortField) {
-    setSort((current) =>
-      current.field === field
-        ? { field, direction: current.direction === "asc" ? "desc" : "asc" }
-        : { field, direction: field === "title" ? "asc" : "desc" },
-    );
+    setSort((current) => getNextSort(current, field));
     setPage(1);
   }
 

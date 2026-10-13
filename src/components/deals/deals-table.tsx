@@ -1,4 +1,4 @@
-import type { SortField, SortOptions } from "@/lib/deals";
+import type { SortDirection, SortField, SortOptions } from "@/lib/deals";
 import { formatCurrency, formatDate } from "@/lib/format";
 import type { Deal } from "@/types/deal";
 import { focusRingClass } from "./field";
@@ -14,7 +14,7 @@ const headerCell =
   "whitespace-nowrap px-4 py-3 text-xs font-semibold uppercase tracking-wide text-gray-500";
 const bodyCell = "px-4 py-3.5";
 
-function SortIcon({ direction }: { direction: "asc" | "desc" | null }) {
+function SortIcon({ direction }: { direction: SortDirection | null }) {
   const base = "size-3.5 shrink-0";
   if (direction === null) {
     return (

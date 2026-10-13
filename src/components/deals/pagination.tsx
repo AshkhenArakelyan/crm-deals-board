@@ -11,7 +11,7 @@ interface PaginationProps {
 type PageItem = number | "ellipsis-start" | "ellipsis-end";
 
 /** Page numbers to show: always first and last, plus a window around the current page. */
-function getPageItems(page: number, totalPages: number): PageItem[] {
+export function getPageItems(page: number, totalPages: number): PageItem[] {
   if (totalPages <= 7) {
     return Array.from({ length: totalPages }, (_, index) => index + 1);
   }
