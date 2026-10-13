@@ -1,10 +1,13 @@
-export type DealStage =
-  | "New"
-  | "Qualified"
-  | "Proposal"
-  | "Negotiation"
-  | "Won"
-  | "Lost";
+export const DEAL_STAGES = [
+  "New",
+  "Qualified",
+  "Proposal",
+  "Negotiation",
+  "Won",
+  "Lost",
+] as const;
+
+export type DealStage = (typeof DEAL_STAGES)[number];
 
 export interface Deal {
   id: number;
