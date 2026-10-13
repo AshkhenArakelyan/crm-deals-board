@@ -168,4 +168,3 @@ Display the table and pagination when matching deals are available.
 - `DATA_MODEL.md` — deal fields and stage values.
 - `API.md` — data retrieval and API states.
 - `TESTING.md` — UI behavior to verify through tests.
-

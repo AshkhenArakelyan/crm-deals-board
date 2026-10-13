@@ -102,4 +102,3 @@ These operations must not trigger additional API requests.
 - `TECH_STACK.md` — technical choices and dependencies.
 - `DATA_MODEL.md` — deal schema and field types.
 - `UI.md` — loading, error, empty, and success states.
-

@@ -107,4 +107,3 @@ Keep the implementation focused on the assignment scope and avoid unnecessary de
 - `API.md`
 - `UI.md`
 - `TESTING.md`
-

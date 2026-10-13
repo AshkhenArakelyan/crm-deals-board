@@ -105,4 +105,3 @@ This is the intended data contract. The actual TypeScript file will be created d
 - `TECH_STACK.md` — technologies and application architecture.
 - `API.md` — endpoint returning deal records.
 - `UI.md` — how deal data is presented and manipulated.
-

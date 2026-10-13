@@ -171,4 +171,3 @@ The assignment is complete when:
 - At least two meaningful automated tests pass.
 - The README explains setup, execution, testing, and key implementation decisions.
 - No real customer or confidential data is used.
-

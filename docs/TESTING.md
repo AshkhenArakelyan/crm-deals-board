@@ -52,4 +52,3 @@ All four tests must pass before submission.
 - `DATA_MODEL.md` — deal data structure.
 - `UI.md` — expected interface behavior.
 - `IMPLEMENTATION_PLAN.md` — implementation sequence.
-
